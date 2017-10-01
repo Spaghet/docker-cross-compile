@@ -1,5 +1,9 @@
 FROM resin/armv7hf-debian
 
-COPY ./qemu-arm /usr/bin/qemu-arm
+COPY ./bin/ /usr/bin/
 
-RUN /usr/bin/qemu-arm /bin/echo Hello from an ARM container
+RUN ["cross-build-start"]
+
+RUN /bin/echo Hello from an ARM container
+
+RUN ["cross-build-end"]
